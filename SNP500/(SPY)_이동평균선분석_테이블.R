@@ -5,7 +5,7 @@
 library(quantmod)
 library(PerformanceAnalytics)
 
-analysis_moving_average <- function(ticker_code, start_date){
+analysis_moving_avg <- function(ticker_code, start_date){
   
   # LOAD DATA
   getSymbols(ticker_code, src = "yahoo", from = start_date)
