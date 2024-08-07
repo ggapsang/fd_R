@@ -11,13 +11,13 @@ analysis_moving_average <- function(ticker_code, start_date){
   getSymbols(ticker_code, src = "yahoo", from = start_date)
   df <- get(ticker_code)
 
-  # ADD A COLUMN OF SMA50
-  df$SMA50 <- SMA(Cl(df), 50)
+  # ADD A COLUMN OF SMA60
+  df$SMA60 <- SMA(Cl(df), 60)
   # ADD A COLUMN OF SMA200
   df$SMA200 <- SMA(Cl(df), 200)
   
   # CHECK BULL OR BEAR MARKET
-  df$MarketTrend <- ifelse(df$SMA50 - df$SMA200 > 0, TRUE, FALSE) # BULL MARKET = 1, BEAR MARKET = 0
+  df$MarketTrend <- ifelse(df$SMA60 - df$SMA200 > 0, TRUE, FALSE) # BULL MARKET = 1, BEAR MARKET = 0
 
   # CHCEK CROSSOVER
   # GOLDEN CROSS 0 -> 1
