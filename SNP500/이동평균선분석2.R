@@ -58,3 +58,5 @@ position <- Lag(signals, k = 1)
 returns <- dailyReturn(Cl(SPY)) * position
 
 charts.PerformanceSummary(returns)
+
+## SAVING RETURNS
