@@ -23,13 +23,12 @@ data_preprocessing <- function(data, short, long){
 
 QQQ <- data_preprocessing(QQQ, 60, 200)
 
+## VISUALIZATION
 GoldenCrossDates <- index(QQQ)[QQQ$GoldenCross == 1]
 DeadCrossDates <- index(QQQ)[QQQ$DeadCross == 1]
 GoldenCrossDates <- na.omit(GoldenCrossDates)
 DeadCrossDates <- na.omit(DeadCrossDates)
 
-
-## VISUALIZATION
 graphics.off()
 plot(index(QQQ), QQQ$QQQ.Close, type='l', col='black', main="QQQ", xlab="YEAR", ylab="Close Price", xaxt = 'n')
 years <- format(index(QQQ), "%Y")
