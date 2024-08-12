@@ -12,14 +12,11 @@ library(xts)
 library(scales)
 library(data.table)
 library(curl)
-library(quantmod)
-library(PerformanceAnalytics)
-library(scales)
 
 # I. LOAD DATA
 
 ## LOAD SPY IN YAHOO
-getSymbols("SPY", src='yahoo', from="1991-01-01", to=Sys.Date())
+getSymbols("SPY", src='yahoo', from="1993-01-29", to=Sys.Date())
 tail(SPY)
 
 # II. STRATEGY : TREND FOLLWING AND CROSSOVER TRADE
@@ -82,8 +79,10 @@ for (i in 2:NROW(returns)) {
   portfolio_value[i] <- capital
 }
 
+Rf <- 0.05
+daily_rf <- Rf/252
+
+annualized_sharpe <- SharpeRatio.annualized(returns, Rf = daily_rf, scale = 252)
+print(annualized_sharpe)
+
 charts.PerformanceSummary(returns)
-
-
-
-
