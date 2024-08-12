@@ -21,7 +21,7 @@ library(scales)
 # I. LOAD DATA
 
 ## LOAD SPY IN YAHOO
-getSymbols("SPY", src='yahoo', from="1991-01-01", to=Sys.Date())
+getSymbols("SPY", src='yahoo', from="1993-01-29", to=Sys.Date())
 tail(SPY)
 
 ## DATA PROCESSING
