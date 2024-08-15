@@ -118,3 +118,15 @@ trend_following <- function(asset, date, dt, price_col){
   names(results) <- c("cash", "stock", "Total Amount", "Distribution Ratio")
   return(results)
 }
+
+
+## GET MACD XTS RETURNS
+macd_xts <- function(tk_code, start_date, end_date, short=12, long=26, sig=9, maType="EMA", percent=FALSE){
+  
+  getSymbols(tk_code, from = start_date, to = end_date)
+  xts_dt <- get(tk_code)
+  macd <- MACD(Cl(xts_dt), nFast = 12, nSlow = 26, nSig = 9, maType = "EMA", percent = FALSE)
+
+  return(macd)
+}
+
